@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dio Lutvi Andre - Personal Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Dio Lutvi Andre</h1>
+            <p>Sistem Informasi</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Biodata</h2>
+            <div class="info-item">
+                <span class="info-label">Nama Lengkap:</span>
+                <span>Dio Lutvi Andre</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Tempat, Tanggal Lahir:</span>
+                <span>Wonosobo, 14 Januari 2006</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Bidang Keahlian:</span>
+                <span>Rekayasa Perangkat Lunak</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Pendidikan:</span>
+                <span>S1 - Jurusan Sistem Informasi</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email:</span>
+                <span>diolutviandre1412@gmail.com</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Telepon:</span>
+                <span>0895375174700</span>
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showContent('prestasi')">Prestasi</button>
+            <button class="nav-btn" onclick="showContent('seminar')">Seminar</button>
+            <button class="nav-btn" onclick="showContent('pelatihan')">Pelatihan</button>
+            <button class="nav-btn" onclick="showContent('kecendekiawanan')">Kecendekiawanan</button>
+        </div>
+        
+        <div class="content-display" id="contentDisplay">
+            <h2 id="contentTitle">Pilih kategori untuk melihat detail</h2>
+            <p id="contentDetail">Silakan klik salah satu tombol di atas untuk melihat informasi lebih lanjut.</p>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/_dla99" class="social-link">Instagram</a>
+            <a href="https://www.linkedin.com/in/diolutviandre" class="social-link">LinkedIn</a>
+            <a href="https://www.youtube.com/channel/UCE39nHulH-IfIpSjKKiJY_g" class="social-link">YouTube</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dio Lutvi Andre. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        function showContent(type) {
+            const contentData = {
+                prestasi: {
+                    title: 'Prestasi',
+                    detail: `
+                        <div class="content-item">
+                            <h3>20 Finalis Esai Tingkat Nasional, 2025</h3>
+                            <p>Pemenang Esai dalam lomba The 5th Nasional Student Leaders on Sustainability, 2025.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>Juara 1 Output Essai 2025</h3>
+                            <p>Pemenang Output Esai - Writing Contest FOMUNY oleh Family of Mahasiswa KIP Kuliah UNY, 2025.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>Juara 1 Poster Tingkat Nasional 2025</h3>
+                            <p>Juara 1 Poster Kategori How to use Technology - Kompetisi Poster #3 Tingkat Nasional oleh Universitas Ahmad Dahlan dan Give Creative, 2025.</p>
+                        </div>
+                    `
+                },
+                seminar: {
+                    title: 'Seminar yang Diikuti',
+                    detail: `
+                        <div class="content-item">
+                            <h3>Seminar Teknologi Masa Depan 2023</h3>
+                            <p>Mempelajari perkembangan teknologi terkini seperti AI, IoT, dan blockchain.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>Web Development Bootcamp 2022</h3>
+                            <p>Belajar pengembangan web modern dengan framework terbaru.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>Cyber Security Awareness 2021</h3>
+                            <p>Memahami pentingnya keamanan siber di era digital.</p>
+                        </div>
+                    `
+                },
+                pelatihan: {
+                    title: 'Pelatihan yang Diikuti',
+                    detail: `
+                        <div class="content-item">
+                            <h3>Full-Stack Web Development</h3>
+                            <p>Pelatihan intensif selama 3 bulan untuk menguasai pengembangan web dari frontend hingga backend.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>Mobile App Development dengan Flutter</h3>
+                            <p>Belajar membuat aplikasi mobile cross-platform menggunakan framework Flutter.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>UI/UX Design Fundamentals</h3>
+                            <p>Pelatihan dasar desain antarmuka dan pengalaman pengguna untuk aplikasi digital.</p>
+                        </div>
+                    `
+                },
+                kecendekiawanan: {
+                    title: 'Kecendekiawanan',
+                    detail: `
+                        <div class="content-item">
+                            <h3>Artikel tentang Teknologi Pendidikan</h3>
+                            <p>Menulis artikel tentang integrasi teknologi dalam proses pembelajaran di era digital.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>Research tentang Machine Learning</h3>
+                            <p>Melakukan penelitian sederhana tentang penerapan machine learning untuk prediksi nilai siswa.</p>
+                        </div>
+                        <div class="content-item">
+                            <h3>Presentasi tentang Etika Digital</h3>
+                            <p>Mempresentasikan pentingnya etika dalam penggunaan teknologi digital di sekolah.</p>
+                        </div>
+                    `
+                }
+            };
+            
+            document.getElementById('contentTitle').textContent = contentData[type].title;
+            document.getElementById('contentDetail').innerHTML = contentData[type].detail;
+        }
+    </script>
+</body>
+</html>

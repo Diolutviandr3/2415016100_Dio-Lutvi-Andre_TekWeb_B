@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To-Do App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        #taskList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #taskList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close {
+            color: red;
+            float: right;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .edit {
+            color: blue;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .task-text {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>My To-Do List</h2>
+        <input type="text" id="newTask" placeholder="Add a new task...">
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList">
+        </ul>
+    </div>
+
+    <script>
+        // PERBAIKAN: Implementasi fungsi addTask untuk menambahkan task baru
+        function addTask() {
+            const taskInput = document.getElementById('newTask');
+            const taskText = taskInput.value.trim();
+            
+            if (taskText === '') {
+                alert('Please enter a task!');
+                return;
+            }
+            
+            const taskList = document.getElementById('taskList');
+            const li = document.createElement('li');
+            
+            // PERBAIKAN: Membuat elemen task dengan teks dan tombol hapus
+            li.innerHTML = `
+                <span class="task-text">${taskText}</span>
+                <span>
+                    <span class="edit" onclick="editTask(this)">Edit</span>
+                    <span class="close" onclick="deleteTask(this)">Delete</span>
+                </span>
+            `;
+            
+            taskList.appendChild(li);
+            taskInput.value = ''; // Mengosongkan input setelah menambahkan
+        }
+        
+        // PERBAIKAN: Implementasi fungsi deleteTask untuk menghapus task
+        function deleteTask(element) {
+            const li = element.parentElement.parentElement;
+            li.remove();
+        }
+        
+        // PERBAIKAN: Implementasi fungsi editTask untuk mengedit task
+        function editTask(element) {
+            const li = element.parentElement.parentElement;
+            const taskText = li.querySelector('.task-text');
+            const newText = prompt('Edit your task:', taskText.textContent);
+            
+            if (newText !== null && newText.trim() !== '') {
+                taskText.textContent = newText.trim();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

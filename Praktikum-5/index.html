@@ -1,69 +1,72 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="id">
 <head>
-    <title>To-Do Apps</title>
-    <style>
-        body {
-            font-family: sans-serif;
-        }
-        .container {
-            width: 350px;
-            margin: 0 auto;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-        }
-
-        #taskList {
-            list-style: none;
-            padding: 0;
-        }
-
-        #taskList li {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .close {
-            color: red;
-            float: right;
-            cursor: pointer;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Apps</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
     <div class="container">
-        <h2>My To-Do List</h2>
-        <input type="text" id="newTask" placeholder="Add a new task...">
-        <button onclick="addTask()">Add</button>
-
+        <div class="header">
+            <h1>To-Do List Dio Lutvi Andre</h1>
+            <p>Kelola tugas harian</p>
+            <div class="theme-controls">
+                <button class="dark-mode-btn" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                    <span class="btn-text">Mode Gelap</span>
+                </button>
+                <button class="color-picker-toggle" onclick="toggleColorPicker()">
+                    <i class="fas fa-palette"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="color-panel" id="colorPanel">
+            <h3>Pilih Warna Tema:</h3>
+            <div class="color-options">
+                <button class="color-option blue" onclick="changeColor('#4361ee', '#3a0ca3')">
+                    <div class="color-preview" style="background: #4361ee"></div>
+                    <span>Biru</span>
+                </button>
+                <button class="color-option red" onclick="changeColor('#e63946', '#d00000')">
+                    <div class="color-preview" style="background: #e63946"></div>
+                    <span>Merah</span>
+                </button>
+                <button class="color-option green" onclick="changeColor('#2a9d8f', '#264653')">
+                    <div class="color-preview" style="background: #2a9d8f"></div>
+                    <span>Hijau</span>
+                </button>
+                <button class="color-option yellow" onclick="changeColor('#e9c46a', '#f4a261')">
+                    <div class="color-preview" style="background: #e9c46a"></div>
+                    <span>Kuning</span>
+                </button>
+                <button class="color-option orange" onclick="changeColor('#fb8500', '#e76f51')">
+                    <div class="color-preview" style="background: #fb8500"></div>
+                    <span>Oranye</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="input-section">
+            <input type="text" id="newTask" placeholder="Tambahkan tugas baru...">
+            <button onclick="addTask()">
+                <i class="fas fa-plus"></i>
+                <span class="btn-text">Tambah Tugas</span>
+            </button>
+        </div>
+        
+        <div class="task-stats">
+            <span id="totalTasks">Total: 0 tugas</span>
+            <span id="completedTasks">Selesai: 0</span>
+        </div>
+        
         <ul id="taskList">
+            <!-- Daftar tugas akan muncul di sini -->
         </ul>
     </div>
 
-    <script>
-        function addTask() {
-            let input = document.getElementById("newTask").value.trim();
-            const task = document.getElementById("taskList");
-            task.innerHTML += `<li>${input}</li>`;
-            input.value = "";
-        }
-
-        function deleteTask(element) {
-        }
-        
-        function editTask(element) {
-        }
-
-        </script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
